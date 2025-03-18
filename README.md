@@ -1,6 +1,6 @@
 # 🌱 CP-Planta Project
 
-## Cloud-native application for managing production processes in a hygienized food plant
+## Cloud-native application for managing production processes in a hygienic food plant
 
 ![CP-Planta Banner](https://avatars.githubusercontent.com/u/202462667?s=200&v=4)
 
