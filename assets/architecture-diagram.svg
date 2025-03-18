@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+  
+  <!-- Cloud Provider Box -->
+  <rect x="50" y="50" width="800" height="500" rx="15" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+  <text x="70" y="80" font-family="Arial" font-size="20" font-weight="bold" fill="#212529">Cloud Provider (AWS/Azure)</text>
+  
+  <!-- VPC/VNet Box -->
+  <rect x="80" y="100" width="740" height="430" rx="10" fill="#f1f3f5" stroke="#495057" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="100" y="130" font-family="Arial" font-size="16" fill="#495057">VPC/VNet</text>
+  
+  <!-- Docker Swarm Cluster -->
+  <rect x="120" y="150" width="660" height="350" rx="10" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="140" y="180" font-family="Arial" font-size="18" font-weight="bold" fill="#212529">Docker Swarm Cluster</text>
+  
+  <!-- Manager Node Box -->
+  <rect x="150" y="200" width="300" height="270" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/>
+  <text x="170" y="230" font-family="Arial" font-size="16" font-weight="bold" fill="#1971c2">Manager Node (instance1)</text>
+  
+  <!-- Worker Node Box -->
+  <rect x="470" y="200" width="280" height="270" rx="8" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <text x="490" y="230" font-family="Arial" font-size="16" font-weight="bold" fill="#f08c00">Worker Node (instance2)</text>
+  
+  <!-- Manager Node Services -->
+  <rect x="170" y="250" width="120" height="60" rx="5" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
+  <text x="230" y="285" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">Traefik</text>
+  
+  <rect x="170" y="320" width="120" height="60" rx="5" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
+  <text x="230" y="355" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">CoreDNS</text>
+  
+  <rect x="170" y="390" width="120" height="60" rx="5" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
+  <text x="230" y="425" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">Backend API</text>
+  
+  <rect x="300" y="250" width="120" height="60" rx="5" fill="#9775fa" stroke="#5f3dc4" stroke-width="2"/>
+  <text x="360" y="285" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">PgBouncer</text>
+  
+  <rect x="300" y="320" width="120" height="60" rx="5" fill="#9775fa" stroke="#5f3dc4" stroke-width="2"/>
+  <text x="360" y="355" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">PostgreSQL Primary</text>
+  
+  <rect x="300" y="390" width="120" height="60" rx="5" fill="#9775fa" stroke="#5f3dc4" stroke-width="2"/>
+  <text x="360" y="425" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">DuckDNS Updater</text>
+  
+  <!-- Worker Node Services -->
+  <rect x="490" y="250" width="120" height="60" rx="5" fill="#ffa94d" stroke="#f08c00" stroke-width="2"/>
+  <text x="550" y="285" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">Frontend</text>
+  
+  <rect x="490" y="320" width="120" height="60" rx="5" fill="#ffa94d" stroke="#f08c00" stroke-width="2"/>
+  <text x="550" y="355" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">PgAdmin</text>
+  
+  <rect x="490" y="390" width="120" height="60" rx="5" fill="#ffa94d" stroke="#f08c00" stroke-width="2"/>
+  <text x="550" y="425" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">Visualizer</text>
+  
+  <rect x="620" y="320" width="120" height="60" rx="5" fill="#ffa94d" stroke="#f08c00" stroke-width="2"/>
+  <text x="680" y="355" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">PostgreSQL Replica</text>
+  
+  <!-- External Connections -->
+  <rect x="350" y="30" width="200" height="40" rx="20" fill="#91a7ff" stroke="#364fc7" stroke-width="2"/>
+  <text x="450" y="55" font-family="Arial" font-size="16" fill="#fff" text-anchor="middle">Internet / Users</text>
+  
+  <!-- Arrows -->
+  <!-- Internet to Traefik -->
+  <path d="M450 70 L450 100 L230 250" fill="none" stroke="#364fc7" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Traefik to Services -->
+  <path d="M220 310 L220 320" fill="none" stroke="#1971c2" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M220 380 L220 390" fill="none" stroke="#1971c2" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M290 280 L300 280" fill="none" stroke="#1971c2" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M290 280 L400 280 L400 230 L550 230 L550 250" fill="none" stroke="#1971c2" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M290 280 L420 280 L420 320 L490 320" fill="none" stroke="#1971c2" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M290 280 L440 280 L440 390 L490 390" fill="none" stroke="#1971c2" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Backend to PgBouncer -->
+  <path d="M290 420 L350 420 L350 310" fill="none" stroke="#5f3dc4" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- PgBouncer to Postgres nodes -->
+  <path d="M360 310 L360 320" fill="none" stroke="#5f3dc4" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M420 300 L610 300 L680 320" fill="none" stroke="#5f3dc4" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Postgres Primary to Replica -->
+  <path d="M420 350 L620 350" fill="none" stroke="#5f3dc4" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#343a40"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <rect x="650" y="100" width="160" height="80" rx="5" fill="#fff" stroke="#343a40" stroke-width="1"/>
+  <circle cx="670" cy="120" r="8" fill="#4dabf7"/>
+  <text x="690" y="125" font-family="Arial" font-size="14" fill="#212529">Manager Services</text>
+  <circle cx="670" cy="150" r="8" fill="#ffa94d"/>
+  <text x="690" y="155" font-family="Arial" font-size="14" fill="#212529">Worker Services</text>
+  <line x1="650" y1="170" x2="670" y2="170" stroke="#5f3dc4" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="690" y="175" font-family="Arial" font-size="14" fill="#212529">Replication</text>
+</svg>

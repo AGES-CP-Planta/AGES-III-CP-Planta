@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" font-family="Arial" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">CP-Planta Database Architecture with Replication</text>
+  
+  <!-- Docker Swarm Cluster Container -->
+  <rect x="50" y="70" width="800" height="500" rx="15" fill="#f1f3f5" stroke="#343a40" stroke-width="2"/>
+  <text x="70" y="100" font-family="Arial" font-size="20" font-weight="bold" fill="#212529">Docker Swarm Cluster</text>
+  
+  <!-- Manager Node -->
+  <rect x="80" y="120" width="380" height="420" rx="10" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/>
+  <text x="100" y="150" font-family="Arial" font-size="18" font-weight="bold" fill="#1971c2">Manager Node (instance1)</text>
+  
+  <!-- Worker Node -->
+  <rect x="480" y="120" width="340" height="420" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <text x="500" y="150" font-family="Arial" font-size="18" font-weight="bold" fill="#f08c00">Worker Node (instance2)</text>
+  
+  <!-- PgBouncer Box -->
+  <rect x="100" y="170" width="340" height="100" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="120" y="200" font-family="Arial" font-size="16" font-weight="bold" fill="#495057">PgBouncer (Connection Pooler)</text>
+  <text x="120" y="225" font-family="Arial" font-size="14" fill="#495057">- Listens on port 6432</text>
+  <text x="120" y="250" font-family="Arial" font-size="14" fill="#495057">- Handles connection pooling to both nodes</text>
+  
+  <!-- PostgreSQL Primary Box -->
+  <rect x="100" y="290" width="340" height="230" rx="8" fill="#9775fa" stroke="#5f3dc4" stroke-width="2"/>
+  <text x="120" y="320" font-family="Arial" font-size="16" font-weight="bold" fill="#5f3dc4">PostgreSQL Primary</text>
+  <text x="120" y="345" font-family="Arial" font-size="14" fill="#5f3dc4">- Main database server</text>
+  <text x="120" y="370" font-family="Arial" font-size="14" fill="#5f3dc4">- Handles read/write operations</text>
+  <text x="120" y="395" font-family="Arial" font-size="14" fill="#5f3dc4">- Streams WAL to replica</text>
+  
+  <!-- Primary DB Replication Settings -->
+  <rect x="120" y="410" width="300" height="90" rx="5" fill="#f8f9fa" stroke="#5f3dc4" stroke-width="1"/>
+  <text x="130" y="430" font-family="Courier" font-size="13" fill="#5f3dc4">wal_level = replica</text>
+  <text x="130" y="450" font-family="Courier" font-size="13" fill="#5f3dc4">max_wal_senders = 10</text>
+  <text x="130" y="470" font-family="Courier" font-size="13" fill="#5f3dc4">hot_standby = on</text>
+  <text x="130" y="490" font-family="Courier" font-size="13" fill="#5f3dc4">max_replication_slots = 10</text>
+  
+  <!-- PostgreSQL Replica Box -->
+  <rect x="500" y="290" width="300" height="230" rx="8" fill="#748ffc" stroke="#364fc7" stroke-width="2"/>
+  <text x="520" y="320" font-family="Arial" font-size="16" font-weight="bold" fill="#364fc7">PostgreSQL Replica</text>
+  <text x="520" y="345" font-family="Arial" font-size="14" fill="#364fc7">- Read-only database server</text>
+  <text x="520" y="370" font-family="Arial" font-size="14" fill="#364fc7">- Handles read operations</text>
+  <text x="520" y="395" font-family="Arial" font-size="14" fill="#364fc7">- Receives WAL from primary</text>
+  
+  <!-- Replica DB Replication Settings -->
+  <rect x="520" y="410" width="260" height="90" rx="5" fill="#f8f9fa" stroke="#364fc7" stroke-width="1"/>
+  <text x="530" y="430" font-family="Courier" font-size="13" fill="#364fc7">primary_conninfo = 'host=postgres_primary'</text>
+  <text x="530" y="450" font-family="Courier" font-size="13" fill="#364fc7">primary_slot_name = 'replication_slot'</text>
+  <text x="530" y="470" font-family="Courier" font-size="13" fill="#364fc7">hot_standby = on</text>
+  <text x="530" y="490" font-family="Courier" font-size="13" fill="#364fc7">hot_standby_feedback = on</text>
+  
+  <!-- Application Connections -->
+  <rect x="150" y="30" width="120" height="60" rx="30" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
+  <text x="210" y="60" font-family="Arial" font-size="15" fill="#fff" text-anchor="middle" font-weight="bold">Backend API</text>
+  
+  <rect x="350" y="30" width="120" height="60" rx="30" fill="#ffa94d" stroke="#e8590c" stroke-width="2"/>
+  <text x="410" y="60" font-family="Arial" font-size="15" fill="#fff" text-anchor="middle" font-weight="bold">PgAdmin</text>
+  
+  <rect x="550" y="30" width="120" height="60" rx="30" fill="#69db7c" stroke="#2b8a3e" stroke-width="2"/>
+  <text x="610" y="60" font-family="Arial" font-size="15" fill="#fff" text-anchor="middle" font-weight="bold">Read-only Clients</text>
+  
+  <!-- Replication Arrow -->
+  <path d="M440 390 C470 390, 470 390, 500 390" fill="none" stroke="#5f3dc4" stroke-width="3" stroke-dasharray="10,5" marker-end="url(#arrowhead)"/>
+  <text x="470" y="375" font-family="Arial" font-size="14" fill="#5f3dc4" text-anchor="middle" font-weight="bold">WAL Streaming</text>
+  
+  <!-- Connection Arrows -->
+  <!-- Backend to PgBouncer -->
+  <path d="M210 90 L210 170" fill="none" stroke="#1971c2" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="225" y="130" font-family="Arial" font-size="12" fill="#1971c2">Write + Read</text>
+  
+  <!-- PgAdmin to PgBouncer -->
+  <path d="M410 90 L320 170" fill="none" stroke="#e8590c" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="380" y="130" font-family="Arial" font-size="12" fill="#e8590c">Admin Access</text>
+  
+  <!-- Read-only Clients to PgBouncer -->
+  <path d="M550 60 L440 170" fill="none" stroke="#2b8a3e" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="480" y="100" font-family="Arial" font-size="12" fill="#2b8a3e">Read-only</text>
+  
+  <!-- PgBouncer to DB -->
+  <path d="M200 270 L200 290" fill="none" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="165" y="280" font-family="Arial" font-size="12" fill="#495057">Write Queries</text>
+  
+  <path d="M340 270 L650 290" fill="none" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="500" y="270" font-family="Arial" font-size="12" fill="#495057">Read Queries</text>
+  
+  <!-- Failover Arrow -->
+  <path d="M500 530 C350 530, 350 530, 200 530" fill="none" stroke="#fa5252" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowhead)"/>
+  <text x="350" y="550" font-family="Arial" font-size="14" fill="#fa5252" text-anchor="middle" font-weight="bold">Automatic Failover (repmgr)</text>
+  
+  <!-- RepmgrD Box -->
+  <rect x="100" y="555" width="700" height="45" rx="8" fill="#ffe8cc" stroke="#ff922b" stroke-width="2"/>
+  <text x="120" y="583" font-family="Arial" font-size="14" fill="#e67700">repmgr: Monitors primary/replica health, coordinates automatic failover, handles promotion to primary</text>
+  
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#343a40"/>
+    </marker>
+  </defs>
+</svg>

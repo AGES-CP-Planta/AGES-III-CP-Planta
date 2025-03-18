@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" font-family="Arial" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">CP-Planta Multi-Cloud Architecture</text>
+  
+  <!-- Cloud Provider Shapes -->
+  <rect x="50" y="80" width="380" height="440" rx="15" fill="#e7f5ff" stroke="#1c7ed6" stroke-width="2"/>
+  <rect x="470" y="80" width="380" height="440" rx="15" fill="#f3f0ff" stroke="#7950f2" stroke-width="2"/>
+  
+  <!-- Cloud Provider Labels -->
+  <text x="240" y="110" font-family="Arial" font-size="20" font-weight="bold" fill="#1c7ed6" text-anchor="middle">AWS</text>
+  <text x="660" y="110" font-family="Arial" font-size="20" font-weight="bold" fill="#7950f2" text-anchor="middle">Azure</text>
+  
+  <!-- AWS Resources -->
+  <rect x="80" y="130" width="320" height="100" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="100" y="160" font-family="Arial" font-size="16" font-weight="bold" fill="#495057">Network Infrastructure</text>
+  <text x="100" y="185" font-family="Arial" font-size="14" fill="#495057">- VPC with public subnet</text>
+  <text x="100" y="210" font-family="Arial" font-size="14" fill="#495057">- Security Groups for all required ports</text>
+  
+  <rect x="80" y="240" width="320" height="120" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="100" y="270" font-family="Arial" font-size="16" font-weight="bold" fill="#495057">Compute Resources</text>
+  <text x="100" y="295" font-family="Arial" font-size="14" fill="#495057">- EC2 t2.small instances</text>
+  <text x="100" y="320" font-family="Arial" font-size="14" fill="#495057">- Ubuntu 24.04 LTS AMI</text>
+  <text x="100" y="345" font-family="Arial" font-size="14" fill="#495057">- Elastic IPs for stable addressing</text>
+  
+  <rect x="80" y="370" width="320" height="120" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="100" y="400" font-family="Arial" font-size="16" font-weight="bold" fill="#495057">Storage</text>
+  <text x="100" y="425" font-family="Arial" font-size="14" fill="#495057">- EBS Volumes for persistent storage</text>
+  <text x="100" y="450" font-family="Arial" font-size="14" fill="#495057">- S3 for Terraform state (optional)</text>
+  <text x="100" y="475" font-family="Arial" font-size="14" fill="#495057">- Docker volumes for data persistence</text>
+  
+  <!-- Azure Resources -->
+  <rect x="500" y="130" width="320" height="100" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="520" y="160" font-family="Arial" font-size="16" font-weight="bold" fill="#495057">Network Infrastructure</text>
+  <text x="520" y="185" font-family="Arial" font-size="14" fill="#495057">- Virtual Network with subnet</text>
+  <text x="520" y="210" font-family="Arial" font-size="14" fill="#495057">- Network Security Groups (NSGs)</text>
+  
+  <rect x="500" y="240" width="320" height="120" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="520" y="270" font-family="Arial" font-size="16" font-weight="bold" fill="#495057">Compute Resources</text>
+  <text x="520" y="295" font-family="Arial" font-size="14" fill="#495057">- Azure VMs (Standard_B2s)</text>
+  <text x="520" y="320" font-family="Arial" font-size="14" fill="#495057">- Ubuntu 24.04 LTS image</text>
+  <text x="520" y="345" font-family="Arial" font-size="14" fill="#495057">- Public IPs for stable addressing</text>
+  
+  <rect x="500" y="370" width="320" height="120" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="520" y="400" font-family="Arial" font-size="16" font-weight="bold" fill="#495057">Storage</text>
+  <text x="520" y="425" font-family="Arial" font-size="14" fill="#495057">- Managed Disks for persistent storage</text>
+  <text x="520" y="450" font-family="Arial" font-size="14" fill="#495057">- Azure Storage for Terraform state</text>
+  <text x="520" y="475" font-family="Arial" font-size="14" fill="#495057">- Docker volumes for data persistence</text>
+  
+  <!-- Common Deployment Layer -->
+  <rect x="50" y="530" width="800" height="60" rx="10" fill="#fff4e6" stroke="#f76707" stroke-width="2"/>
+  <text x="450" y="560" font-family="Arial" font-size="18" font-weight="bold" fill="#f76707" text-anchor="middle">Common Deployment Layer (Terraform + Ansible + Docker Swarm)</text>
+  
+  <!-- Common Resources Box -->
+  <rect x="290" y="200" width="320" height="160" rx="10" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="2"/>
+  <text x="450" y="230" font-family="Arial" font-size="18" font-weight="bold" fill="#2b8a3e" text-anchor="middle">Common Application Stack</text>
+  <text x="450" y="260" font-family="Arial" font-size="14" fill="#2b8a3e" text-anchor="middle">- NestJS Backend API</text>
+  <text x="450" y="285" font-family="Arial" font-size="14" fill="#2b8a3e" text-anchor="middle">- ReactJS Frontend</text>
+  <text x="450" y="310" font-family="Arial" font-size="14" fill="#2b8a3e" text-anchor="middle">- PostgreSQL Database with Replication</text>
+  <text x="450" y="335" font-family="Arial" font-size="14" fill="#2b8a3e" text-anchor="middle">- Traefik Edge Router</text>
+  
+  <!-- External Components -->
+  <rect x="290" y="100" width="320" height="60" rx="30" fill="#ffdeeb" stroke="#c2255c" stroke-width="2"/>
+  <text x="450" y="125" font-family="Arial" font-size="16" fill="#c2255c" font-weight="bold" text-anchor="middle">External Services</text>
+  <text x="450" y="145" font-family="Arial" font-size="14" fill="#c2255c" text-anchor="middle">DuckDNS for Domain Management</text>
+  
+  <!-- Arrows Connecting Components -->
+  <path d="M450 160 L450 200" fill="none" stroke="#c2255c" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M450 360 C450 380, 450 400, 450 420" fill="none" stroke="#2b8a3e" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M450 420 L450 530" fill="none" stroke="#2b8a3e" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <path d="M290 280 C210 280, 210 280, 160 280" fill="none" stroke="#2b8a3e" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M610 280 C690 280, 690 280, 740 280" fill="none" stroke="#2b8a3e" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#343a40"/>
+    </marker>
+  </defs>
+</svg>

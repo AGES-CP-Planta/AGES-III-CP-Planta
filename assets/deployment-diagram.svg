@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" font-family="Arial" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">CP-Planta Deployment Workflow</text>
+  
+  <!-- Workflow Container -->
+  <rect x="50" y="60" width="800" height="500" rx="10" fill="#f1f3f5" stroke="#343a40" stroke-width="2"/>
+  
+  <!-- Step 1: Repository Setup -->
+  <rect x="100" y="90" width="700" height="80" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="120" y="120" font-family="Arial" font-size="18" font-weight="bold" fill="#212529">1. Repository Setup</text>
+  <rect x="120" y="130" width="150" height="30" rx="5" fill="#e7f5ff" stroke="#1971c2" stroke-width="1"/>
+  <text x="195" y="150" font-family="Arial" font-size="14" fill="#1971c2" text-anchor="middle">Clone Repository</text>
+  <rect x="290" y="130" width="150" height="30" rx="5" fill="#e7f5ff" stroke="#1971c2" stroke-width="1"/>
+  <text x="365" y="150" font-family="Arial" font-size="14" fill="#1971c2" text-anchor="middle">Create .env File</text>
+  <rect x="460" y="130" width="150" height="30" rx="5" fill="#e7f5ff" stroke="#1971c2" stroke-width="1"/>
+  <text x="535" y="150" font-family="Arial" font-size="14" fill="#1971c2" text-anchor="middle">Check Dependencies</text>
+  
+  <!-- Arrow 1-2 -->
+  <path d="M450 170 L450 190" fill="none" stroke="#343a40" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 2: Infrastructure Provisioning -->
+  <rect x="100" y="190" width="700" height="80" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="120" y="220" font-family="Arial" font-size="18" font-weight="bold" fill="#212529">2. Infrastructure Provisioning</text>
+  <rect x="120" y="230" width="150" height="30" rx="5" fill="#ffdeeb" stroke="#c2255c" stroke-width="1"/>
+  <text x="195" y="250" font-family="Arial" font-size="14" fill="#c2255c" text-anchor="middle">Terraform Init</text>
+  <rect x="290" y="230" width="150" height="30" rx="5" fill="#ffdeeb" stroke="#c2255c" stroke-width="1"/>
+  <text x="365" y="250" font-family="Arial" font-size="14" fill="#c2255c" text-anchor="middle">Terraform Plan</text>
+  <rect x="460" y="230" width="150" height="30" rx="5" fill="#ffdeeb" stroke="#c2255c" stroke-width="1"/>
+  <text x="535" y="250" font-family="Arial" font-size="14" fill="#c2255c" text-anchor="middle">Terraform Apply</text>
+  <rect x="630" y="230" width="150" height="30" rx="5" fill="#ffdeeb" stroke="#c2255c" stroke-width="1"/>
+  <text x="705" y="250" font-family="Arial" font-size="14" fill="#c2255c" text-anchor="middle">Generate Inventory</text>
+  
+  <!-- Arrow 2-3 -->
+  <path d="M450 270 L450 290" fill="none" stroke="#343a40" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 3: Docker Swarm Setup -->
+  <rect x="100" y="290" width="700" height="80" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="120" y="320" font-family="Arial" font-size="18" font-weight="bold" fill="#212529">3. Docker Swarm Setup</text>
+  <rect x="120" y="330" width="150" height="30" rx="5" fill="#e9ecef" stroke="#495057" stroke-width="1"/>
+  <text x="195" y="350" font-family="Arial" font-size="14" fill="#495057" text-anchor="middle">Install Docker</text>
+  <rect x="290" y="330" width="150" height="30" rx="5" fill="#e9ecef" stroke="#495057" stroke-width="1"/>
+  <text x="365" y="350" font-family="Arial" font-size="14" fill="#495057" text-anchor="middle">Init Swarm Manager</text>
+  <rect x="460" y="330" width="150" height="30" rx="5" fill="#e9ecef" stroke="#495057" stroke-width="1"/>
+  <text x="535" y="350" font-family="Arial" font-size="14" fill="#495057" text-anchor="middle">Join Worker Nodes</text>
+  <rect x="630" y="330" width="150" height="30" rx="5" fill="#e9ecef" stroke="#495057" stroke-width="1"/>
+  <text x="705" y="350" font-family="Arial" font-size="14" fill="#495057" text-anchor="middle">Configure DNS</text>
+  
+  <!-- Arrow 3-4 -->
+  <path d="M450 370 L450 390" fill="none" stroke="#343a40" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 4: Database Deployment -->
+  <rect x="100" y="390" width="700" height="80" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="120" y="420" font-family="Arial" font-size="18" font-weight="bold" fill="#212529">4. Database Deployment</text>
+  <rect x="120" y="430" width="150" height="30" rx="5" fill="#fff4e6" stroke="#e8590c" stroke-width="1"/>
+  <text x="195" y="450" font-family="Arial" font-size="14" fill="#e8590c" text-anchor="middle">Deploy PostgreSQL</text>
+  <rect x="290" y="430" width="150" height="30" rx="5" fill="#fff4e6" stroke="#e8590c" stroke-width="1"/>
+  <text x="365" y="450" font-family="Arial" font-size="14" fill="#e8590c" text-anchor="middle">Setup Replication</text>
+  <rect x="460" y="430" width="150" height="30" rx="5" fill="#fff4e6" stroke="#e8590c" stroke-width="1"/>
+  <text x="535" y="450" font-family="Arial" font-size="14" fill="#e8590c" text-anchor="middle">Deploy PgBouncer</text>
+  <rect x="630" y="430" width="150" height="30" rx="5" fill="#fff4e6" stroke="#e8590c" stroke-width="1"/>
+  <text x="705" y="450" font-family="Arial" font-size="14" fill="#e8590c" text-anchor="middle">Deploy PgAdmin</text>
+  
+  <!-- Arrow 4-5 -->
+  <path d="M450 470 L450 490" fill="none" stroke="#343a40" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 5: Application Deployment -->
+  <rect x="100" y="490" width="700" height="60" rx="8" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="120" y="520" font-family="Arial" font-size="18" font-weight="bold" fill="#212529">5. Application Deployment</text>
+  <rect x="290" y="505" width="150" height="30" rx="5" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="1"/>
+  <text x="365" y="525" font-family="Arial" font-size="14" fill="#2b8a3e" text-anchor="middle">Deploy Backend</text>
+  <rect x="460" y="505" width="150" height="30" rx="5" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="1"/>
+  <text x="535" y="525" font-family="Arial" font-size="14" fill="#2b8a3e" text-anchor="middle">Deploy Frontend</text>
+  
+  <!-- Legend -->
+  <rect x="730" y="490" width="20" height="15" rx="3" fill="#e7f5ff" stroke="#1971c2" stroke-width="1"/>
+  <rect x="730" y="510" width="20" height="15" rx="3" fill="#ffdeeb" stroke="#c2255c" stroke-width="1"/>
+  <rect x="730" y="530" width="20" height="15" rx="3" fill="#fff4e6" stroke="#e8590c" stroke-width="1"/>
+  <rect x="730" y="550" width="20" height="15" rx="3" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="1"/>
+  <text x="755" y="502" font-family="Arial" font-size="12" fill="#1971c2">Setup</text>
+  <text x="755" y="522" font-family="Arial" font-size="12" fill="#c2255c">Terraform</text>
+  <text x="755" y="542" font-family="Arial" font-size="12" fill="#e8590c">Database</text>
+  <text x="755" y="562" font-family="Arial" font-size="12" fill="#2b8a3e">Application</text>
+  
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#343a40"/>
+    </marker>
+  </defs>
+</svg>
